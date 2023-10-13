@@ -1,0 +1,9 @@
+{
+  "profiles": {
+    "IncludeConverter": {
+      "commandName": "Project",
+      "commandLineArgs": "-i 3rd-party\\mioc\\include -s 3rd-party\\mioc\\include 3rd-party\\mioc\\src",
+      "workingDirectory": "F:\\Development\\Projects\\SysYCompiler\\ToMiCompiler - Copy\\"
+    }
+  }
+}
