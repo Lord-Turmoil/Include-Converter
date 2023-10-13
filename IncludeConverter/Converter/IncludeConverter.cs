@@ -1,15 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using IncludeConverter.Extensions;
+﻿// Copyright (C) 2018 - 2023 Tony's Studio. All rights reserved.
 
 namespace IncludeConverter.Converter;
 
 internal abstract class IncludeConverter
 {
-    protected static readonly List<string> Extensions = new() { ".h", ".hpp", ".hxx", ".hh", ".c", ".cpp", ".cc", ".cxx" };
+    protected static readonly List<string> Extensions = new()
+        { ".h", ".hpp", ".hxx", ".hh", ".c", ".cpp", ".cc", ".cxx" };
 
     public void Convert(IEnumerable<string> sourceDirectories)
     {

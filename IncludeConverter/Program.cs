@@ -1,11 +1,11 @@
-﻿// See https://aka.ms/new-console-template for more information
+﻿// Copyright (C) 2018 - 2023 Tony's Studio. All rights reserved.
 
 using IncludeConverter.Converter;
 using IncludeConverter.Mapper;
 
 namespace IncludeConverter;
 
-class Program
+internal static class Program
 {
     public static void Main(string[] args)
     {
@@ -45,10 +45,12 @@ class Program
                         includeDirectories.Add(arg);
                     }
                 }
+
                 if (isSource)
                 {
                     sourceDirectories.Add(arg);
                 }
+
                 if (!isInclude && !isSource)
                 {
                     rootDirectory = arg;
