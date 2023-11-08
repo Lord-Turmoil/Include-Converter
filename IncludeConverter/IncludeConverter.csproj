@@ -6,6 +6,14 @@
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
     <LangVersion>latest</LangVersion>
+    <Authors>Tony Skywalker</Authors>
+    <Company>Tony's Studio</Company>
+    <Description>Convert between #include &lt;...&gt; and #include "..." for C/C++.</Description>
+    <Copyright>Copyright (C) Tony's Studio 2023</Copyright>
+    <RepositoryUrl>https://github.com/Lord-Turmoil/Include-Converter</RepositoryUrl>
+    <AssemblyVersion>1.1.0.0</AssemblyVersion>
+    <FileVersion>1.1.0.0</FileVersion>
+    <Version>1.1.0</Version>
   </PropertyGroup>
 
 </Project>
