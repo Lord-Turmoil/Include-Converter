@@ -13,11 +13,11 @@ It is implemented with C#, so you may have .NET framework installed.
 ## Usage
 
 ```bash
-IncludeConverter.exe [rootDir] [-a] -i [incDir1 incDir2 ...] -s [srcDir1 srcDir2 ...]
+IncludeConverter.exe [rootDir] [--to-quote] -i [incDir1 incDir2 ...] -s [srcDir1 srcDir2 ...]
 ```
 
 - `rootDir`: The root directory of your project, or sub-project, to avoid too long path in the later directories. If you don't add this, it will take the current directory as the root, thus you may need to use absolute path later.
-- `-a`: If this is added, it will convert absolute path to relative path, i.e. <> to "", otherwise, it will convert "" to <>.
+- `--to-quote`: If this is added, it will convert absolute path to relative path, i.e. <> to "", otherwise, it will convert "" to <>.
 - `-i`: Parameters following `-i` will be regarded as include directories.
 - `-s`: Parameters following `-s` will be regarded as source file directories. Of course, it can include header files, since we also want to change include directives in them.
 
