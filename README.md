@@ -33,4 +33,4 @@ Under the project directory, run `rel2abs.bat` to convert relative include direc
 
 ## Limitations
 
-It currently use one-to-one mapping, so it won't work as expected if you have header files with the same name in one project. Although it can be avoided by separate these header files in different runs.
+Well, it doesn't yet support simple <> and "" replacement, only recursive update.
