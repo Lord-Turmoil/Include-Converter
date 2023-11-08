@@ -1,9 +1,18 @@
 {
   "profiles": {
-    "IncludeConverter": {
+    "WSL": {
+      "commandName": "WSL2",
+      "distributionName": ""
+    },
+    "To Quote": {
       "commandName": "Project",
-      "commandLineArgs": "-i 3rd-party\\mioc\\include -s 3rd-party\\mioc\\include 3rd-party\\mioc\\src",
-      "workingDirectory": "F:\\Development\\Projects\\SysYCompiler\\ToMiCompiler - Copy\\"
+      "commandLineArgs": "-i inc -s src --to-quote",
+      "workingDirectory": "$(SolutionDir)\\Demo"
+    },
+    "To Angle": {
+      "commandName": "Project",
+      "commandLineArgs": "-i inc -s src",
+      "workingDirectory": "$(SolutionDir)\\Demo"
     }
   }
 }

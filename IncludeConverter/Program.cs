@@ -1,7 +1,6 @@
 ﻿// Copyright (C) 2018 - 2023 Tony's Studio. All rights reserved.
 
 using IncludeConverter.Converter;
-using IncludeConverter.Mapper;
 
 namespace IncludeConverter;
 
@@ -72,7 +71,7 @@ internal static class Program
 
     private static void RelativeToAbsolute(IEnumerable<string> incList, IEnumerable<string> srcList)
     {
-        var mapper = new RelativeToAbsoluteMapper();
+        var mapper = new IncludeMapper();
         mapper.BuildIndex(incList);
         var converter = new RelativeToAbsoluteConverter(mapper);
         converter.Convert(srcList);
@@ -80,7 +79,7 @@ internal static class Program
 
     private static void AbsoluteToRelative(IEnumerable<string> incList, IEnumerable<string> srcList)
     {
-        var mapper = new AbsoluteToRelativeMapper();
+        var mapper = new IncludeMapper();
         mapper.BuildIndex(incList);
         var converter = new AbsoluteToRelativeConverter(mapper);
         converter.Convert(srcList);

@@ -1,15 +1,14 @@
 ﻿// Copyright (C) 2018 - 2023 Tony's Studio. All rights reserved.
 
 using IncludeConverter.Extensions;
-using IncludeConverter.Mapper;
 
 namespace IncludeConverter.Converter;
 
 internal class AbsoluteToRelativeConverter : IncludeConverter
 {
-    private readonly AbsoluteToRelativeMapper _mapper;
+    private readonly IncludeMapper _mapper;
 
-    public AbsoluteToRelativeConverter(AbsoluteToRelativeMapper mapper)
+    public AbsoluteToRelativeConverter(IncludeMapper mapper)
     {
         _mapper = mapper;
     }
@@ -76,8 +75,7 @@ internal class AbsoluteToRelativeConverter : IncludeConverter
         }
 
         string header = include.Substring(begin + 1, end - begin - 1);
-        string filename = Path.GetFileName(header);
-        string? target = _mapper.Map(filename);
+        string? target = _mapper.AngleToQuote(header);
         if (target == null)
         {
             newInclude = include;
