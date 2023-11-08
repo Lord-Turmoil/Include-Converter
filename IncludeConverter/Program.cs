@@ -28,7 +28,7 @@ internal static class Program
                 isInclude = false;
                 isSource = true;
             }
-            else if (arg == "-a")
+            else if (arg == "--to-quote")
             {
                 relativeToAbsolute = false;
             }
