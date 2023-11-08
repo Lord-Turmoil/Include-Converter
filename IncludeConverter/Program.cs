@@ -70,7 +70,7 @@ internal static class Program
         }
     }
 
-    private static void RelativeToAbsolute(List<string> incList, List<string> srcList)
+    private static void RelativeToAbsolute(IEnumerable<string> incList, IEnumerable<string> srcList)
     {
         var mapper = new RelativeToAbsoluteMapper();
         mapper.BuildIndex(incList);
@@ -78,7 +78,7 @@ internal static class Program
         converter.Convert(srcList);
     }
 
-    private static void AbsoluteToRelative(List<string> incList, List<string> srcList)
+    private static void AbsoluteToRelative(IEnumerable<string> incList, IEnumerable<string> srcList)
     {
         var mapper = new AbsoluteToRelativeMapper();
         mapper.BuildIndex(incList);
