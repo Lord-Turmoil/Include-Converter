@@ -70,8 +70,13 @@ internal class AbsoluteToRelativeConverter : IncludeConverter
         int end = include.IndexOf('>');
         if (begin == -1 || end == -1)
         {
-            newInclude = include;
-            return false;
+            begin = include.IndexOf('"');
+            end = include.IndexOf('"', begin + 1);
+            if (begin == -1 || end == -1)
+            {
+                newInclude = include;
+                return false;
+            }
         }
 
         string header = include.Substring(begin + 1, end - begin - 1);

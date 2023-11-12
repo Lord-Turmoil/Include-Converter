@@ -81,8 +81,16 @@ internal class RelativeToAbsoluteConverter : IncludeConverter
         string? target = _mapper.QuoteToAngle(headerUri.AbsolutePath);
         if (target == null)
         {
-            newInclude = include;
-            return false;
+            // If it is already an absolute, just wrapped with ""
+            if (_mapper.AngleToQuote(header) != null)
+            {
+                target = header;
+            }
+            else
+            {
+                newInclude = include;
+                return false;
+            }
         }
 
         newInclude = include[..begin] + '<' + target + '>' + include[(end + 1)..];

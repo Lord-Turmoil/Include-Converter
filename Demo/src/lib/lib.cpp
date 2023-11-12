@@ -1,5 +1,5 @@
 #include <iostream>
-#include <lib/lib.h> // will preserve other information
+#include "../../inc/lib/lib.h" // will preserve other information
 
 void print_message()
 {
