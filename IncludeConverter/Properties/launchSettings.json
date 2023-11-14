@@ -13,6 +13,16 @@
       "commandName": "Project",
       "commandLineArgs": "-i inc -s src",
       "workingDirectory": "$(SolutionDir)\\Demo"
+    },
+    "To Quote Silent": {
+      "commandName": "Project",
+      "commandLineArgs": "-i inc -s src --to-quote --silent",
+      "workingDirectory": "$(SolutionDir)\\Demo"
+    },
+    "To Angle Silent": {
+      "commandName": "Project",
+      "commandLineArgs": "-i inc -s src --silent",
+      "workingDirectory": "$(SolutionDir)\\Demo"
     }
   }
 }

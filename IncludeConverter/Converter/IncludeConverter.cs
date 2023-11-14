@@ -7,6 +7,12 @@ internal abstract class IncludeConverter
     protected static readonly List<string> Extensions = new()
         { ".h", ".hpp", ".hxx", ".hh", ".c", ".cpp", ".cc", ".cxx" };
 
+    protected bool _silent;
+    protected IncludeConverter(bool silent)
+    {
+        _silent = silent;
+    }
+
     public void Convert(IEnumerable<string> sourceDirectories)
     {
         foreach (string sourceDirectory in sourceDirectories)

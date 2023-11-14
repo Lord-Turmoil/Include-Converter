@@ -11,6 +11,13 @@ internal class IncludeMapper
     private readonly Dictionary<string, string> AngleToQuoteIndex = new();
     private Uri _includeDirecetory;
 
+    private bool _silent;
+
+    public IncludeMapper(bool silent)
+    {
+        _silent = silent;
+    }
+
     public void BuildIndex(IEnumerable<string> includeDirectories)
     {
         foreach (string includeDirectory in includeDirectories)
@@ -21,6 +28,7 @@ internal class IncludeMapper
 
     public void BuildIndex(string includeDirectory)
     {
+        Console.WriteLine("Building index for {0}...", includeDirectory);
         _includeDirecetory = new Uri(Path.GetFullPath(includeDirectory));
 
         DirectoryTraveler traveler = new(null, VisitFile);
@@ -46,19 +54,28 @@ internal class IncludeMapper
         }
 
         string filename = Path.GetFileName(path);
-        Console.Write($"Indexing... {filename,-35}");
+        if (!_silent)
+        {
+            Console.WriteLine($"Indexing... {filename,-35}");
+        }
         if (QuoteToAngleIndex.ContainsKey(filename))
         {
-            Console.Write(" [Replace]");
+            if (!_silent)
+            {
+                Console.Write(" [Replace]");
+            }
         }
 
         // Will add if not exists, and update if exists.
-        var fullPath = new Uri(Path.GetFullPath(path)).AbsolutePath;
+        string fullPath = new Uri(Path.GetFullPath(path)).AbsolutePath;
         var include = new Uri(fullPath);
         string target = _includeDirecetory.MakeRelativeUri(include).ToString();
         QuoteToAngleIndex[fullPath] = target;
         AngleToQuoteIndex[target] = fullPath;
 
-        Console.WriteLine($" as {target}");
+        if (!_silent)
+        {
+            Console.WriteLine($" as {target}");
+        }
     }
 }

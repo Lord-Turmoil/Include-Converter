@@ -8,13 +8,15 @@ internal class RelativeToAbsoluteConverter : IncludeConverter
 {
     private readonly IncludeMapper _mapper;
 
-    public RelativeToAbsoluteConverter(IncludeMapper mapper)
+    public RelativeToAbsoluteConverter(IncludeMapper mapper, bool silent)
+        : base(silent)
     {
         _mapper = mapper;
     }
 
     public override void Convert(string sourceDirectory)
     {
+        Console.WriteLine("Converting {0}...", sourceDirectory);
         DirectoryTraveler traveler = new(null, VisitFile);
         traveler.Traverse(sourceDirectory);
     }
@@ -28,7 +30,10 @@ internal class RelativeToAbsoluteConverter : IncludeConverter
         }
 
         string filename = Path.GetFileName(path);
-        Console.WriteLine($"Converting... {filename,-35}");
+        if (!_silent)
+        {
+            Console.WriteLine($"Converting... {filename,-35}");
+        }
 
         ModifySourceFile(path);
     }
@@ -47,7 +52,10 @@ internal class RelativeToAbsoluteConverter : IncludeConverter
                 if (ConvertInclude(line, path, out newLine))
                 {
                     overwrite = true;
-                    Console.WriteLine(newLine);
+                    if (!_silent)
+                    {
+                        Console.WriteLine(newLine);
+                    }
                 }
             }
             else

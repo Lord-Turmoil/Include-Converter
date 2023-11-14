@@ -6,6 +6,8 @@ namespace IncludeConverter;
 
 internal static class Program
 {
+    private static bool _isSilent = false;
+
     public static void Main(string[] args)
     {
         bool isInclude = false;
@@ -30,6 +32,10 @@ internal static class Program
             else if (arg == "--to-quote")
             {
                 relativeToAbsolute = false;
+            }
+            else if (arg == "--silent")
+            {
+                _isSilent = true;
             }
             else
             {
@@ -71,17 +77,17 @@ internal static class Program
 
     private static void RelativeToAbsolute(IEnumerable<string> incList, IEnumerable<string> srcList)
     {
-        var mapper = new IncludeMapper();
+        var mapper = new IncludeMapper(_isSilent);
         mapper.BuildIndex(incList);
-        var converter = new RelativeToAbsoluteConverter(mapper);
+        var converter = new RelativeToAbsoluteConverter(mapper, _isSilent);
         converter.Convert(srcList);
     }
 
     private static void AbsoluteToRelative(IEnumerable<string> incList, IEnumerable<string> srcList)
     {
-        var mapper = new IncludeMapper();
+        var mapper = new IncludeMapper(_isSilent);
         mapper.BuildIndex(incList);
-        var converter = new AbsoluteToRelativeConverter(mapper);
+        var converter = new AbsoluteToRelativeConverter(mapper, _isSilent);
         converter.Convert(srcList);
     }
 }
