@@ -11,7 +11,7 @@
     },
     "To Angle": {
       "commandName": "Project",
-      "commandLineArgs": "-i inc -s src",
+      "commandLineArgs": "-i inc -s inc src",
       "workingDirectory": "$(SolutionDir)\\Demo"
     },
     "To Quote Silent": {
